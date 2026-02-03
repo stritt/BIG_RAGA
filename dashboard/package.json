@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:prod": "MAHORAGA_API_URL=https://big-raga.burcs.workers.dev vite --port 3001",
     "build": "tsc -b && vite build",
     "preview": "vite preview"
   },
