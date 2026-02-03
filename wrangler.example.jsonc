@@ -38,15 +38,15 @@
 	"d1_databases": [
 		{
 			"binding": "DB",
-			"database_name": "big-raga-db",
-			"database_id": "9ae1db8b-b1bc-4695-ad0a-c7cf6f8652bf",
+			"database_name": "mahoraga-db",
+			"database_id": "<YOUR_D1_DATABASE_ID>",
 			"migrations_dir": "migrations"
 		}
 	],
 	"kv_namespaces": [
 		{
 			"binding": "CACHE",
-			"id": "3c610bc0155f4a13b63f209957870ab1"
+			"id": "<YOUR_KV_NAMESPACE_ID>"
 		}
 	],
 	"r2_buckets": [
