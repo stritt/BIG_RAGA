@@ -256,17 +256,25 @@ const SOURCE_CONFIG = {
   decayHalfLifeMinutes: 120,
 };
 
+// ============================================================================
+// BIG_RAGA: AGGRESSIVE MODE CONFIG
+// Fork of MAHORAGA tuned for maximum performance on sukuna.dev leaderboard
+// ============================================================================
 const DEFAULT_CONFIG: AgentConfig = {
   data_poll_interval_ms: 30_000,
   analyst_interval_ms: 120_000,
-  max_position_value: 5000,
-  max_positions: 5,
-  min_sentiment_score: 0.3,
-  min_analyst_confidence: 0.6,
-  sell_sentiment_threshold: -0.2,
-  take_profit_pct: 10,
-  stop_loss_pct: 5,
+  // ---------- AGGRESSIVE POSITION SIZING ----------
+  max_position_value: 15000,        // [AGGRESSIVE] 3x default
+  max_positions: 20,                // [AGGRESSIVE] 4x default
   position_size_pct_of_cash: 25,
+  // ---------- LOWER THRESHOLDS = MORE TRADES ----------
+  min_sentiment_score: 0.2,         // [AGGRESSIVE] Lower bar (default: 0.3)
+  min_analyst_confidence: 0.5,      // [AGGRESSIVE] Lower bar (default: 0.6)
+  sell_sentiment_threshold: -0.2,
+  // ---------- TIGHTER RISK MANAGEMENT ----------
+  take_profit_pct: 8,               // [AGGRESSIVE] Take profits faster (default: 10)
+  stop_loss_pct: 3,                 // [AGGRESSIVE] Cut losses faster (default: 5)
+  // ---------- STALENESS DETECTION ----------
   stale_position_enabled: true,
   stale_min_hold_hours: 24,
   stale_max_hold_days: 3,
@@ -275,26 +283,29 @@ const DEFAULT_CONFIG: AgentConfig = {
   stale_mid_min_gain_pct: 3,
   stale_social_volume_decay: 0.3,
   stale_no_mentions_hours: 24,
+  // ---------- LLM CONFIG ----------
   llm_provider: "openai-raw",
   llm_model: "gpt-4o-mini",
   llm_analyst_model: "gpt-4o",
   llm_max_tokens: 500,
-  options_enabled: false,
-  options_min_confidence: 0.8,
-  options_max_pct_per_trade: 0.02,
-  options_max_total_exposure: 0.10,
-  options_min_dte: 30,
-  options_max_dte: 60,
+  // ---------- OPTIONS: ENABLED ----------
+  options_enabled: true,            // [AGGRESSIVE] Options ON
+  options_min_confidence: 0.7,      // [AGGRESSIVE] Lower bar (default: 0.8)
+  options_max_pct_per_trade: 0.03,  // [AGGRESSIVE] Larger options trades
+  options_max_total_exposure: 0.30, // [AGGRESSIVE] 30% max exposure (default: 10%)
+  options_min_dte: 7,               // [AGGRESSIVE] Shorter-dated options
+  options_max_dte: 45,              // [AGGRESSIVE] Medium-term
   options_target_delta: 0.45,
   options_min_delta: 0.30,
   options_max_delta: 0.70,
   options_stop_loss_pct: 50,
   options_take_profit_pct: 100,
-  options_max_positions: 3,
-  crypto_enabled: false,
-  crypto_symbols: ["BTC/USD", "ETH/USD", "SOL/USD"],
-  crypto_momentum_threshold: 2.0,
-  crypto_max_position_value: 1000,
+  options_max_positions: 5,         // [AGGRESSIVE] More options positions
+  // ---------- CRYPTO: ENABLED 24/7 ----------
+  crypto_enabled: true,             // [AGGRESSIVE] Crypto ON
+  crypto_symbols: ["BTC/USD", "ETH/USD", "SOL/USD", "DOGE/USD", "AVAX/USD", "LINK/USD", "MATIC/USD"],
+  crypto_momentum_threshold: 0.3,   // [AGGRESSIVE] Lower threshold (default: 2.0)
+  crypto_max_position_value: 2000,  // [AGGRESSIVE] Larger crypto positions
   crypto_take_profit_pct: 10,
   crypto_stop_loss_pct: 5,
   ticker_blacklist: [],

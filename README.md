@@ -1,6 +1,28 @@
 ⚠️ **Warning:** This software is provided for educational and informational purposes only. Nothing in this repository constitutes financial, investment, legal, or tax advice.
 
-# MAHORAGA
+# BIG_RAGA 🔥
+
+**AGGRESSIVE MODE FORK** of [MAHORAGA](https://github.com/ygwyg/MAHORAGA) for the [sukuna.dev](https://sukuna.dev) leaderboard competition.
+
+## Aggressive Settings
+
+| Setting | Value | Description |
+|---------|-------|-------------|
+| `max_positions` | 20 | More concurrent positions |
+| `max_position_value` | $15,000 | Larger position sizes |
+| `take_profit_pct` | 8% | Take profits earlier |
+| `stop_loss_pct` | 3% | Tighter stop losses |
+| `trailing_stop_pct` | 4% | Lock in gains |
+| `min_analyst_confidence` | 0.5 | Lower bar = more trades |
+| `min_sentiment_score` | 0.2 | Trade on weaker signals |
+| `crypto_enabled` | ✅ | 24/7 crypto trading |
+| `crypto_symbols` | BTC, ETH, SOL, DOGE, AVAX, LINK, MATIC | Full crypto coverage |
+| `options_enabled` | ✅ | Options for leverage |
+| `options_max_dte` | 45 days | Medium-term options |
+| `max_daily_loss_pct` | 5% | Higher risk tolerance |
+| `cooldown_minutes` | 15 | Faster re-entry |
+
+---
 
 An autonomous, LLM-powered trading agent that runs 24/7 on Cloudflare Workers.
 

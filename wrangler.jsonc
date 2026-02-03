@@ -1,6 +1,7 @@
 {
 	"$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
-	"name": "mahoraga",
+	"name": "big-raga",
+	"account_id": "3f3fc3f3d329d967573c0e8acc8525e1",
 	"main": "src/index.ts",
 	"compatibility_date": "2024-12-01",
 	"compatibility_flags": [
@@ -9,13 +10,7 @@
 	"vars": {
 		"ENVIRONMENT": "production",
 		"FEATURE_LLM_RESEARCH": "true",
-		"FEATURE_OPTIONS": "true",
-		"DEFAULT_MAX_POSITION_PCT": "0.10",
-		"DEFAULT_MAX_NOTIONAL_PER_TRADE": "5000",
-		"DEFAULT_MAX_DAILY_LOSS_PCT": "0.02",
-		"DEFAULT_COOLDOWN_MINUTES": "30",
-		"DEFAULT_MAX_OPEN_POSITIONS": "10",
-		"DEFAULT_APPROVAL_TTL_SECONDS": "300"
+		"FEATURE_OPTIONS": "true"
 	},
 	// Secrets (set via `wrangler secret put <NAME>`):
 	// Required:
@@ -43,21 +38,21 @@
 	"d1_databases": [
 		{
 			"binding": "DB",
-			"database_name": "mahoraga-db",
-			"database_id": "0897594a-1f52-4ec4-b2ca-0140565600ea",
+			"database_name": "big-raga-db",
+			"database_id": "9ae1db8b-b1bc-4695-ad0a-c7cf6f8652bf",
 			"migrations_dir": "migrations"
 		}
 	],
 	"kv_namespaces": [
 		{
 			"binding": "CACHE",
-			"id": "274b918539f24b3fb8de3e248a8bc6e7"
+			"id": "3c610bc0155f4a13b63f209957870ab1"
 		}
 	],
 	"r2_buckets": [
 		{
 			"binding": "ARTIFACTS",
-			"bucket_name": "mahoraga-artifacts"
+			"bucket_name": "big-raga-artifacts"
 		}
 	],
 	"durable_objects": {
